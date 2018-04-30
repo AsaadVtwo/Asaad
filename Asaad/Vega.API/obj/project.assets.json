@@ -12607,11 +12607,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\asaad\\Desktop\\Vega\\vega.api\\Vega.API.csproj",
+      "projectUniqueName": "C:\\Users\\asaad\\Desktop\\Vega\\Asaad\\Vega.API\\Vega.API.csproj",
       "projectName": "Vega.API",
-      "projectPath": "C:\\Users\\asaad\\Desktop\\Vega\\vega.api\\Vega.API.csproj",
+      "projectPath": "C:\\Users\\asaad\\Desktop\\Vega\\Asaad\\Vega.API\\Vega.API.csproj",
       "packagesPath": "C:\\Users\\asaad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\asaad\\Desktop\\Vega\\vega.api\\obj\\",
+      "outputPath": "C:\\Users\\asaad\\Desktop\\Vega\\Asaad\\Vega.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

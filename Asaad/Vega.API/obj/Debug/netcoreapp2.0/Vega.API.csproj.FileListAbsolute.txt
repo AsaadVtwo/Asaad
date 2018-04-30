@@ -20,3 +20,14 @@ C:\Users\asaad\Desktop\Vega\vega.api\obj\Debug\netcoreapp2.0\Vega.API.AssemblyIn
 C:\Users\asaad\Desktop\Vega\vega.api\obj\Debug\netcoreapp2.0\Vega.API.AssemblyInfo.cs
 C:\Users\asaad\Desktop\Vega\vega.api\obj\Debug\netcoreapp2.0\Vega.API.dll
 C:\Users\asaad\Desktop\Vega\vega.api\obj\Debug\netcoreapp2.0\Vega.API.pdb
+C:\Users\asaad\Desktop\Vega\Asaad\Vega.API\bin\Debug\netcoreapp2.0\Vega.API.deps.json
+C:\Users\asaad\Desktop\Vega\Asaad\Vega.API\bin\Debug\netcoreapp2.0\Vega.API.runtimeconfig.json
+C:\Users\asaad\Desktop\Vega\Asaad\Vega.API\bin\Debug\netcoreapp2.0\Vega.API.runtimeconfig.dev.json
+C:\Users\asaad\Desktop\Vega\Asaad\Vega.API\bin\Debug\netcoreapp2.0\Vega.API.dll
+C:\Users\asaad\Desktop\Vega\Asaad\Vega.API\bin\Debug\netcoreapp2.0\Vega.API.pdb
+C:\Users\asaad\Desktop\Vega\Asaad\Vega.API\obj\Debug\netcoreapp2.0\Vega.API.csprojResolveAssemblyReference.cache
+C:\Users\asaad\Desktop\Vega\Asaad\Vega.API\obj\Debug\netcoreapp2.0\Vega.API.csproj.CoreCompileInputs.cache
+C:\Users\asaad\Desktop\Vega\Asaad\Vega.API\obj\Debug\netcoreapp2.0\Vega.API.AssemblyInfoInputs.cache
+C:\Users\asaad\Desktop\Vega\Asaad\Vega.API\obj\Debug\netcoreapp2.0\Vega.API.AssemblyInfo.cs
+C:\Users\asaad\Desktop\Vega\Asaad\Vega.API\obj\Debug\netcoreapp2.0\Vega.API.dll
+C:\Users\asaad\Desktop\Vega\Asaad\Vega.API\obj\Debug\netcoreapp2.0\Vega.API.pdb
