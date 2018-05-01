@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Vega.api.Models;
 using Vega.API.Models;
 
-namespace Vega.api.Persistence
+namespace Vega.api.Data
 {
     public class VegaDbContext : DbContext
     {
@@ -13,6 +13,7 @@ namespace Vega.api.Persistence
         }
         public DbSet<Make> Makes { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Photo> Photos { get; set; }
         
     }
 }

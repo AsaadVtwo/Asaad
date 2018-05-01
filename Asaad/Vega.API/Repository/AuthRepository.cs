@@ -2,7 +2,7 @@ using System;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Vega.api.Persistence;
+using Vega.api.Data;
 using Vega.API.Models;
 
 namespace Vega.API.Repository

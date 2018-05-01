@@ -19,10 +19,11 @@ using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Serialization;
 using Vega.api.Mapping;
 using Vega.api.Models;
-using Vega.api.Persistence;
+using Vega.api.Data;
 using Vega.api.Resources;
 using Vega.API.Helpers;
 using Vega.API.Repository;
+using Vega.API.Data;
 
 namespace Vega.API
 {
@@ -49,6 +50,7 @@ namespace Vega.API
             services.AddDbContext<VegaDbContext> (options =>
                 options.UseSqlServer (Configuration.GetConnectionString ("DefaultConnection")));
 
+            services.AddTransient<Seed>();
             services.AddMvc ();
 
             services.AddScoped<IAuthRepository, AuthRepository> ();
@@ -68,7 +70,7 @@ namespace Vega.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure (IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure (IApplicationBuilder app, IHostingEnvironment env, Seed seeder)
         {
             if (env.IsDevelopment ())
             {
@@ -91,7 +93,7 @@ namespace Vega.API
                     });
                 });
             }
-
+            seeder.SeedUsers();
             app.UseCors (x => x.AllowAnyHeader ().AllowAnyMethod ().AllowAnyOrigin ().AllowCredentials ());
             app.UseAuthentication ();
             app.UseMvc ();
