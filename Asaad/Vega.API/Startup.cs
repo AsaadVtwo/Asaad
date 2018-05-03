@@ -17,13 +17,13 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Serialization;
+using Vega.api.Data;
 using Vega.api.Mapping;
 using Vega.api.Models;
-using Vega.api.Data;
 using Vega.api.Resources;
+using Vega.API.Data;
 using Vega.API.Helpers;
 using Vega.API.Repository;
-using Vega.API.Data;
 
 namespace Vega.API
 {
@@ -50,11 +50,11 @@ namespace Vega.API
             services.AddDbContext<VegaDbContext> (options =>
                 options.UseSqlServer (Configuration.GetConnectionString ("DefaultConnection")));
 
-            services.AddTransient<Seed>();
+            services.AddTransient<Seed> ();
             services.AddMvc ();
 
             services.AddScoped<IAuthRepository, AuthRepository> ();
-
+            services.AddScoped<IDatingRepository, DatingRepository> ();
             services.AddAuthentication (JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer (options =>
                 {
@@ -93,7 +93,7 @@ namespace Vega.API
                     });
                 });
             }
-            seeder.SeedUsers();
+            seeder.SeedUsers ();
             app.UseCors (x => x.AllowAnyHeader ().AllowAnyMethod ().AllowAnyOrigin ().AllowCredentials ());
             app.UseAuthentication ();
             app.UseMvc ();
