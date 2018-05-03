@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Http;
 
 namespace Vega.API.Helpers
@@ -9,6 +10,11 @@ namespace Vega.API.Helpers
             response.Headers.Add("Application-Error", message);
             response.Headers.Add("Access-Control-Expose-Headers", "Application-Error");
             response.Headers.Add("Access-Control-Allow-Origin", "*");
+        }
+        public static int CalculateAge(this DateTime ThisDateTime)
+        {
+            var age= DateTime.Today.Year-ThisDateTime.Year;
+            return age;
         }
     }
 }
