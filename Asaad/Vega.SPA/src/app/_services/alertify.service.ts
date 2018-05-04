@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 declare let alertify: any;
 
 @Injectable()
-export class AlterifyService {
+export class AlertifyService {
   constructor() {}
 
   confirm(message: string, okCallback: () => any) {
