@@ -1,3 +1,5 @@
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { ListsComponent } from './lists/lists.component';
 import { AuthModule } from './auth/auth.module';
 import { AuthGuard } from './_guards/auth.guard';
@@ -27,6 +29,7 @@ import { MemberCardComponent } from './members/member-card/member-card.component
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
 import { NgxGalleryModule } from 'ngx-gallery';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
 
 
 
@@ -41,6 +44,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
     MemberCardComponent,
     MemberDetailComponent,
     MessagesComponent,
+    MemberEditComponent,
     ListsComponent
   ],
   imports: [
@@ -59,7 +63,9 @@ import { NgxGalleryModule } from 'ngx-gallery';
     AuthGuard,
     UserService,
     MemberDetailResolver,
-    MemberListResolver
+    MemberListResolver,
+    MemberEditResolver,
+    PreventUnsavedChanges
   ],
   bootstrap: [AppComponent]
 })

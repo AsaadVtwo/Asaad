@@ -1,5 +1,6 @@
 using System.Linq;
 using AutoMapper;
+using DatingApp.API.Dtos;
 using Vega.API.Dtos;
 using Vega.API.Models;
 
@@ -28,6 +29,7 @@ namespace Vega.API.Helpers
                     opt.ResolveUsing(d => d.DateOfBirth.CalculateAge());
                 });
             CreateMap<Photo, PhotosForDetailedDto>();
+            CreateMap<UserForUpdateDto,User>();
         }
     }
 }

@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Http, RequestOptions, Headers } from '@angular/http';
@@ -25,6 +26,10 @@ export class UserService {
       .get(this.baseUrl + 'users/' + id)
       .map(response => <User>response.json())
       .catch(this.handleError);
+  }
+
+  updateUser(id: number, user: User) {
+    return this.authHttp.put(this.baseUrl + 'users/' + id, user).catch(this.handleError);
   }
 
   private handleError(error: any) {
