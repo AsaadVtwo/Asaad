@@ -23,6 +23,13 @@ namespace Vega.API.Data
             context.Remove(entity);
         }
 
+        public async Task<Photo> GetPhoto(int id)
+        {
+           var photo = await context.Photos.FirstOrDefaultAsync(u => u.Id == id);
+
+            return photo;
+        }
+
         public async Task<User> GetUser(int id)
         {
             var user = await context.Users.Include(p => p.Photos).FirstOrDefaultAsync(u => u.Id == id);

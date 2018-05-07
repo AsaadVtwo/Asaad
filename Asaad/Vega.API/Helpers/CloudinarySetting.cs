@@ -6,7 +6,7 @@ namespace Vega.API.Helpers
     //   "ApiSecret": "o0_mXBoqOMWCwY6gtFV-dsc8HDs"
 
 
-    public class CloudinarySetting
+    public class CloudinarySettings
     {
         public string CloudName { get; set; }
         public string ApiKey { get; set; }

@@ -48,11 +48,11 @@ namespace Vega.API
             services.AddAutoMapper (typeof (Startup));
 
             services.AddDbContext<VegaDbContext> (options =>
-                options.UseSqlServer (Configuration.GetConnectionString ("DefaultConnection2")));
+                options.UseSqlServer (Configuration.GetConnectionString ("DefaultConnection")));
 
             services.AddTransient<Seed> ();
             services.AddMvc ();
-            services.Configure<CloudinarySetting>(Configuration.GetSection("CloudinarySettings"));
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddScoped<IAuthRepository, AuthRepository> ();
             services.AddScoped<IDatingRepository, DatingRepository> ();
             services.AddAuthentication (JwtBearerDefaults.AuthenticationScheme)
