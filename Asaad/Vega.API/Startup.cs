@@ -48,7 +48,7 @@ namespace Vega.API
             services.AddAutoMapper (typeof (Startup));
 
             services.AddDbContext<VegaDbContext> (options =>
-                options.UseSqlServer (Configuration.GetConnectionString ("DefaultConnection")));
+                options.UseSqlServer (Configuration.GetConnectionString ("DefaultConnection2")));
 
             services.AddTransient<Seed> ();
             services.AddMvc ();
