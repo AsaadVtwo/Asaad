@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Vega.API.Models;
 using Microsoft.EntityFrameworkCore;
 using Vega.api.Data;
+using System.Linq;
 
 namespace Vega.API.Data
 {
@@ -23,9 +24,14 @@ namespace Vega.API.Data
             context.Remove(entity);
         }
 
+        public async Task<Photo> GetMainPhotoForUser(int userId)
+        {
+            return await context.Photos.Where(u => u.UserId == userId).FirstOrDefaultAsync(p => p.IsMain);
+        }
+
         public async Task<Photo> GetPhoto(int id)
         {
-           var photo = await context.Photos.FirstOrDefaultAsync(u => u.Id == id);
+            var photo = await context.Photos.FirstOrDefaultAsync(u => u.Id == id);
 
             return photo;
         }

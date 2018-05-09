@@ -104,29 +104,29 @@ namespace Vega.API.Controllers
         }
 
         [HttpPost("{id}/setMain")]
-        // public async Task<IActionResult> SetMainPhoto(int userId, int id)
-        // {
-        //     if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
-        //         return Unauthorized();
+        public async Task<IActionResult> SetMainPhoto(int userId, int id)
+        {
+            if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                return Unauthorized();
 
-        //     var photoFromRepo = await repo.GetPhoto(id);
-        //     if (photoFromRepo == null)
-        //         return NotFound();
+            var photoFromRepo = await repo.GetPhoto(id);
+            if (photoFromRepo == null)
+                return NotFound();
 
-        //     if (photoFromRepo.IsMain)
-        //         return BadRequest("This is already the main photo");
+            if (photoFromRepo.IsMain)
+                return BadRequest("This is already the main photo");
 
-        //     var currentMainPhoto = await repo.GetMainPhotoForUser(userId);
-        //     if (currentMainPhoto != null)
-        //         currentMainPhoto.IsMain = false;
+            var currentMainPhoto = await repo.GetMainPhotoForUser(userId);
+            if (currentMainPhoto != null)
+                currentMainPhoto.IsMain = false;
 
-        //     photoFromRepo.IsMain = true;
+            photoFromRepo.IsMain = true;
 
-        //     if (await repo.SaveAll())
-        //         return NoContent();
+            if (await repo.SaveAll())
+                return NoContent();
 
-        //     return BadRequest("Could not set photo to main");
-        // }
+            return BadRequest("Could not set photo to main");
+        }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePhoto(int userId, int id)

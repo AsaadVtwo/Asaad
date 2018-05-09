@@ -6,14 +6,10 @@ namespace Vega.api.Resources
 {
     public class MakeResource
     {
-         public MakeResource()
-        {
-            Models= new Collection <ModelResource>();
-        }
-        
+        public MakeResource() => Models = new Collection<ModelResource>();
+
         public int Id { get; set; }
 
-      
         public string Name { get; set; }
 
         public ICollection<ModelResource> Models { get; set; }
