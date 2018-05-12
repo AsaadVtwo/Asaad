@@ -43,8 +43,8 @@ img {
     bottom: -30%;
     left: 0;
     right: 0;
-    margin-right:0 auto;
-    margin-left:0 auto;
+    margin-right: auto;
+    margin-left: auto;
     opacity: 0;
 }
 
@@ -55,13 +55,4 @@ img {
 
 .animate {
     transition: all 0.3s ease-in-out;
-}
-
-
-@media (max-width: 768px){
-    .btn{
-        padding: 2px 4px;
-        font-size: 80%;
-        line-height: 1;
-    }
 }

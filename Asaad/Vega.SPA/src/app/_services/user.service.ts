@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Http, RequestOptions, Headers } from '@angular/http';
@@ -31,8 +30,13 @@ export class UserService {
   updateUser(id: number, user: User) {
     return this.authHttp.put(this.baseUrl + 'users/' + id, user).catch(this.handleError);
   }
+
   setMainPhoto(userId: number, id: number) {
     return this.authHttp.post(this.baseUrl + 'users/' + userId + '/photos/' + id + '/setMain', {}).catch(this.handleError);
+  }
+
+  deletePhoto(userId: number, id: number) {
+    return this.authHttp.delete(this.baseUrl + 'users/' + userId + '/photos/' + id).catch(this.handleError);
   }
 
   private handleError(error: any) {
