@@ -36,6 +36,8 @@ namespace Vega.API.Helpers
             CreateMap<Photo, PhotoForReturnDto> ();
 
             CreateMap<UserForUpdateDto, User> ();
+
+            CreateMap<UserForRegisterDto,User>();
         }
     }
 }
