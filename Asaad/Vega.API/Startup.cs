@@ -29,7 +29,7 @@ namespace Vega.API
 {
     public class Startup
     {
-        public Startup (IConfiguration configuration)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -40,63 +40,64 @@ namespace Vega.API
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices (IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
 
-            var key = Encoding.ASCII.GetBytes (Configuration.GetSection ("AppSettings:Token").Value);
+            var key = Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value);
 
-            services.AddAutoMapper (typeof (Startup));
+            services.AddAutoMapper(typeof(Startup));
 
-            services.AddDbContext<VegaDbContext> (options =>
-                options.UseSqlServer (Configuration.GetConnectionString ("DefaultConnection")));
+            services.AddDbContext<VegaDbContext>(options =>
+               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddTransient<Seed> ();
-            services.AddMvc ();
+            services.AddTransient<Seed>();
+            services.AddMvc();
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
-            services.AddScoped<IAuthRepository, AuthRepository> ();
-            services.AddScoped<IDatingRepository, DatingRepository> ();
-            services.AddAuthentication (JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer (options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey (key),
-                    ValidateIssuer = false,
-                    ValidateAudience = false
-                    };
-                });
+            services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IDatingRepository, DatingRepository>();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+               {
+                   options.TokenValidationParameters = new TokenValidationParameters
+                   {
+                       ValidateIssuerSigningKey = true,
+                       IssuerSigningKey = new SymmetricSecurityKey(key),
+                       ValidateIssuer = false,
+                       ValidateAudience = false
+                   };
+               });
+            services.AddScoped<LogUserActivity>();
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure (IApplicationBuilder app, IHostingEnvironment env, Seed seeder)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, Seed seeder)
         {
-            if (env.IsDevelopment ())
+            if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage ();
+                app.UseDeveloperExceptionPage();
             }
             else
             {
-                app.UseExceptionHandler (builder =>
-                {
-                    builder.Run (async context =>
-                    {
-                        context.Response.StatusCode = (int) HttpStatusCode.InternalServerError;
+                app.UseExceptionHandler(builder =>
+               {
+                   builder.Run(async context =>
+                   {
+                       context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
-                        var error = context.Features.Get<IExceptionHandlerFeature> ();
-                        if (error != null)
-                        {
-                            context.Response.AddApplicationError (error.Error.Message);
-                            await context.Response.WriteAsync (error.Error.Message);
-                        }
-                    });
-                });
+                       var error = context.Features.Get<IExceptionHandlerFeature>();
+                       if (error != null)
+                       {
+                           context.Response.AddApplicationError(error.Error.Message);
+                           await context.Response.WriteAsync(error.Error.Message);
+                       }
+                   });
+               });
             }
-            seeder.SeedUsers ();
-            app.UseCors (x => x.AllowAnyHeader ().AllowAnyMethod ().AllowAnyOrigin ().AllowCredentials ());
-            app.UseAuthentication ();
-            app.UseMvc ();
+            seeder.SeedUsers();
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
+            app.UseAuthentication();
+            app.UseMvc();
         }
     }
 }

@@ -44,7 +44,7 @@ namespace Vega.API.Controllers
             var createUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
 
             var userToReturn = _mapper.Map<UserForDetailedDto>(createUser);
-            
+
             return CreatedAtRoute("GetUser", new { controller = "Users", id = createUser.Id }, userToReturn);
         }
 
@@ -64,8 +64,8 @@ namespace Vega.API.Controllers
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                new Claim (ClaimTypes.NameIdentifier, userFromRepo.Id.ToString ()),
-                new Claim (ClaimTypes.Name, userFromRepo.Username)
+                    new Claim (ClaimTypes.NameIdentifier, userFromRepo.Id.ToString ()),
+                    new Claim (ClaimTypes.Name, userFromRepo.Username)
                 }),
                 Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),
